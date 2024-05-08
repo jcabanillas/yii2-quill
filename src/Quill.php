@@ -608,11 +608,6 @@ class Quill extends InputWidget
             if ($this->isKatex()) {
                 KatexLocalAsset::register($view);
             }
-
-            if ($this->isMagicUrl()) {
-                MagicUrlLocalAsset::register($view);
-            }
-
             if ($this->isHighlightJs()) {
                 $highlightAsset = HighlightLocalAsset::register($view);
                 $highlightAsset->style = $this->highlightStyle;
@@ -623,15 +618,15 @@ class Quill extends InputWidget
             if ($this->isSmartBreak()) {
                 SmartBreakLocalAsset::register($view);
             }
+
+            if ($this->isMagicUrl()) {
+                MagicUrlLocalAsset::register($view);
+            }
+
         } else {
             if ($this->isKatex()) {
                 $katexAsset = KatexAsset::register($view);
                 $katexAsset->version = $this->katexVersion;
-            }
-
-            if ($this->isMagicUrl()) {
-                $magicUrlAsset = MagicUrlAsset::register($view);
-                // $magicUrlAsset->version = $this->magicUrlVersion;
             }
 
             if ($this->isHighlightJs()) {
@@ -642,6 +637,11 @@ class Quill extends InputWidget
 
             $asset = QuillAsset::register($view);
             $asset->version = $this->quillVersion;
+
+            if ($this->isMagicUrl()) {
+                $magicUrlAsset = MagicUrlAsset::register($view);
+                // $magicUrlAsset->version = $this->magicUrlVersion;
+            }
         }
         $asset->theme = $this->theme;
 
