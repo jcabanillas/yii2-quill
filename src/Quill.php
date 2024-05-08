@@ -636,7 +636,7 @@ class Quill extends InputWidget
 
         if ($this->enableMagicUrl) {
             $view->registerJsFile('https://unpkg.com/quill-magic-url@3.0.0/dist/index.js', [
-                'position' => View::POS_END,
+                'position' => View::POS_HEAD,
             ]);
         }
 
