@@ -10,6 +10,7 @@ use jcabanillas\quill\assets\KatexAsset;
 use jcabanillas\quill\assets\KatexLocalAsset;
 use jcabanillas\quill\assets\QuillAsset;
 use jcabanillas\quill\assets\QuillLocalAsset;
+use jcabanillas\quill\assets\QuillMagicUrlAsset;
 use jcabanillas\quill\assets\SmartBreakLocalAsset;
 use yii\base\InvalidConfigException;
 use yii\helpers\ArrayHelper;
@@ -633,12 +634,10 @@ class Quill extends InputWidget
         if (!empty($this->js)) {
             $js .= str_replace('{quill}', $editor, $this->js);
         }
-
         if ($this->enableMagicUrl) {
-            $view->registerJsFile('https://unpkg.com/quill-magic-url@3.0.0/dist/index.js', [
-                'position' => View::POS_HEAD,
-            ]);
+            QuillMagicUrlAsset::register($view);
         }
+
 
         $view->registerJs($js, View::POS_END);
     }
