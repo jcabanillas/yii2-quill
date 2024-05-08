@@ -10,7 +10,8 @@ use jcabanillas\quill\assets\KatexAsset;
 use jcabanillas\quill\assets\KatexLocalAsset;
 use jcabanillas\quill\assets\QuillAsset;
 use jcabanillas\quill\assets\QuillLocalAsset;
-use jcabanillas\quill\assets\QuillMagicUrlAsset;
+use jcabanillas\quill\assets\MagicUrlAsset;
+use jcabanillas\quill\assets\MagicUrlLocalAsset;
 use jcabanillas\quill\assets\SmartBreakLocalAsset;
 use yii\base\InvalidConfigException;
 use yii\helpers\ArrayHelper;
@@ -52,13 +53,6 @@ class Quill extends InputWidget
     public const QUILL_VERSION = '1.3.7';
     public const KATEX_VERSION = '0.15.2';
     public const HIGHLIGHTJS_VERSION = '11.4.0';
-
-    /**
-    * @var bool Whether to enable the magicUrl module.
-    * @since 3.4.0
-    */
-    public $enableMagicUrl = false;
-
 
     /** {@inheritdoc} */
     public static $autoIdPrefix = 'quill-';
@@ -305,6 +299,10 @@ class Quill extends InputWidget
             $this->setKatex(true);
         }
 
+        if ($name === 'magicUrl') {
+            $this->setMagicUrl(true);
+        }
+
         if ($name === 'syntax') {
             $this->setHighlightJs(true);
         }
@@ -371,6 +369,29 @@ class Quill extends InputWidget
     }
 
     /** @var bool */
+    private $_magicUrl = false;
+
+    /**
+     * Checks whether the Katex needs to be added.
+     * @return bool
+     * @since 3.0.0
+     */
+    public function isMagicUrl(): bool
+    {
+        return $this->_magicUrl;
+    }
+
+    /**
+     * Sets MagicUrl flag.
+     * @param bool $katex
+     * @since 3.0.0
+     */
+    public function setMagicUrl(bool $magicUrl): void
+    {
+        $this->_magicUrl = $magicUrl;
+    }
+
+    /** @var bool */
     private $_highlightJs = false;
 
     /**
@@ -403,6 +424,10 @@ class Quill extends InputWidget
 
             if (isset($this->configuration['modules']['formula'])) {
                 $this->setKatex(true);
+            }
+
+            if (isset($this->configuration['modules']['magicUrl'])) {
+                $this->setMagicUrl(true);
             }
 
             if (isset($this->configuration['modules']['syntax'])) {
@@ -447,10 +472,6 @@ class Quill extends InputWidget
 
             if (!empty($this->toolbarOptions)) {
                 $this->addModule('toolbar', $this->renderToolbar());
-            }
-
-            if ($this->enableMagicUrl) {
-                $this->addModule('magicUrl', true);
             }
         }
     }
@@ -588,6 +609,10 @@ class Quill extends InputWidget
                 KatexLocalAsset::register($view);
             }
 
+            if ($this->isMagicUrl()) {
+                MagicUrlLocalAsset::register($view);
+            }
+
             if ($this->isHighlightJs()) {
                 $highlightAsset = HighlightLocalAsset::register($view);
                 $highlightAsset->style = $this->highlightStyle;
@@ -602,6 +627,11 @@ class Quill extends InputWidget
             if ($this->isKatex()) {
                 $katexAsset = KatexAsset::register($view);
                 $katexAsset->version = $this->katexVersion;
+            }
+
+            if ($this->isMagicUrl()) {
+                $magicUrlAsset = MagicUrlAsset::register($view);
+                // $magicUrlAsset->version = $this->magicUrlVersion;
             }
 
             if ($this->isHighlightJs()) {
@@ -634,10 +664,6 @@ class Quill extends InputWidget
         if (!empty($this->js)) {
             $js .= str_replace('{quill}', $editor, $this->js);
         }
-        if ($this->enableMagicUrl) {
-            QuillMagicUrlAsset::register($view);
-        }
-
 
         $view->registerJs($js, View::POS_END);
     }
