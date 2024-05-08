@@ -52,6 +52,13 @@ class Quill extends InputWidget
     public const KATEX_VERSION = '0.15.2';
     public const HIGHLIGHTJS_VERSION = '11.4.0';
 
+    /**
+    * @var bool Whether to enable the magicUrl module.
+    * @since 3.4.0
+    */
+    public $enableMagicUrl = false;
+
+
     /** {@inheritdoc} */
     public static $autoIdPrefix = 'quill-';
 
@@ -440,6 +447,10 @@ class Quill extends InputWidget
             if (!empty($this->toolbarOptions)) {
                 $this->addModule('toolbar', $this->renderToolbar());
             }
+
+            if ($this->enableMagicUrl) {
+                $this->addModule('magicUrl', true);
+            }
         }
     }
 
@@ -621,6 +632,12 @@ class Quill extends InputWidget
 
         if (!empty($this->js)) {
             $js .= str_replace('{quill}', $editor, $this->js);
+        }
+
+        if ($this->enableMagicUrl) {
+            $view->registerJsFile('https://unpkg.com/quill-magic-url@3.0.0/dist/index.js', [
+                'position' => View::POS_END,
+            ]);
         }
 
         $view->registerJs($js, View::POS_END);
