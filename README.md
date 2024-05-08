@@ -1,8 +1,8 @@
 # yii2-quill
 
-![Latest Stable Version](https://img.shields.io/packagist/v/bizley/quill.svg)
-[![Total Downloads](https://img.shields.io/packagist/dt/bizley/quill.svg)](https://packagist.org/packages/bizley/quill)
-![License](https://img.shields.io/packagist/l/bizley/quill.svg)
+![Latest Stable Version](https://img.shields.io/packagist/v/jcabanillas/quill.svg)
+[![Total Downloads](https://img.shields.io/packagist/dt/jcabanillas/quill.svg)](https://packagist.org/packages/jcabanillas/quill)
+![License](https://img.shields.io/packagist/l/jcabanillas/quill.svg)
 
 *Yii 2 implementation of Quill, modern WYSIWYG editor.*
 
@@ -21,7 +21,7 @@ You can find Quill at https://quilljs.com/
 Run console command
 
 ```
-composer require bizley/quill:^3.3
+composer require jcabanillas/quill:^3.3
 ```
 
 Or add the package to your `composer.json`:
@@ -29,7 +29,7 @@ Or add the package to your `composer.json`:
 ```json
 {
     "require": {
-        "bizley/quill": "^3.3"
+        "jcabanillas/quill": "^3.3"
     }
 }
 ```
@@ -46,13 +46,13 @@ This package might depend on some NPM packages. Make sure you can fetch them by 
 Use it as an active field extension  
 
 ```php
-<?= $form->field($model, $attribute)->widget(\bizley\quill\Quill::class, []) ?>
+<?= $form->field($model, $attribute)->widget(\jcabanillas\quill\Quill::class, []) ?>
 ```
 
 Or as a standalone widget
 
 ```php  
-<?= \bizley\quill\Quill::widget(['name' => 'editor', 'value' => '']) ?>
+<?= \jcabanillas\quill\Quill::widget(['name' => 'editor', 'value' => '']) ?>
 ```
 
 ### Basic parameters

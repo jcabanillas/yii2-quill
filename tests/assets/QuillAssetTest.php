@@ -2,10 +2,10 @@
 
 declare(strict_types=1);
 
-namespace bizley\tests\assets;
+namespace jcabanillas\tests\assets;
 
-use bizley\quill\assets\QuillAsset;
-use bizley\quill\Quill;
+use jcabanillas\quill\assets\QuillAsset;
+use jcabanillas\quill\Quill;
 use PHPUnit\Framework\TestCase;
 use Yii;
 use yii\base\InvalidConfigException;
@@ -25,7 +25,7 @@ class QuillAssetTest extends TestCase
                 'components' => [
                     'assetManager' => [
                         'linkAssets' => true,
-                        'basePath' => '@bizley/tests/runtime',
+                        'basePath' => '@jcabanillas/tests/runtime',
                         'baseUrl' => '/'
                     ]
                 ]

@@ -2,16 +2,16 @@
 
 declare(strict_types=1);
 
-namespace bizley\tests;
+namespace jcabanillas\tests;
 
-use bizley\quill\assets\HighlightAsset;
-use bizley\quill\assets\HighlightLocalAsset;
-use bizley\quill\assets\KatexAsset;
-use bizley\quill\assets\KatexLocalAsset;
-use bizley\quill\assets\QuillAsset;
-use bizley\quill\assets\QuillLocalAsset;
-use bizley\quill\assets\SmartBreakLocalAsset;
-use bizley\quill\Quill;
+use jcabanillas\quill\assets\HighlightAsset;
+use jcabanillas\quill\assets\HighlightLocalAsset;
+use jcabanillas\quill\assets\KatexAsset;
+use jcabanillas\quill\assets\KatexLocalAsset;
+use jcabanillas\quill\assets\QuillAsset;
+use jcabanillas\quill\assets\QuillLocalAsset;
+use jcabanillas\quill\assets\SmartBreakLocalAsset;
+use jcabanillas\quill\Quill;
 use PHPUnit\Framework\TestCase;
 use Yii;
 use yii\base\DynamicModel;
@@ -39,7 +39,7 @@ class QuillTest extends TestCase
                 'components' => [
                     'assetManager' => [
                         'linkAssets' => true,
-                        'basePath' => '@bizley/tests/runtime',
+                        'basePath' => '@jcabanillas/tests/runtime',
                         'baseUrl' => '/'
                     ]
                 ]

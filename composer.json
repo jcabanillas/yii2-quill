@@ -1,17 +1,17 @@
 {
-  "name": "bizley/quill",
+  "name": "jcabanillas/quill",
   "description": "Quill editor implementation for Yii 2.",
   "type": "yii2-extension",
   "keywords": ["yii2","quill","wysiwyg","widget","editor","katex","highlight.js"],
   "license": "Apache-2.0",
   "authors": [
     {
-      "name": "Paweł Bizley Brzozowski",
+      "name": "Paweł jcabanillas Brzozowski",
       "email": "pawel@positive.codes"
     }
   ],
   "support": {
-    "source": "https://github.com/bizley/yii2-quill"
+    "source": "https://github.com/jcabanillas/yii2-quill"
   },
   "require": {
     "php": ">=7.1",
@@ -33,12 +33,12 @@
   },
   "autoload": {
     "psr-4": {
-      "bizley\\quill\\": "src/"
+      "jcabanillas\\quill\\": "src/"
     }
   },
   "autoload-dev": {
     "psr-4": {
-      "bizley\\tests\\": "tests/"
+      "jcabanillas\\tests\\": "tests/"
     }
   },
   "repositories": [

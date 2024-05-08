@@ -2,15 +2,15 @@
 
 declare(strict_types=1);
 
-namespace bizley\quill;
+namespace jcabanillas\quill;
 
-use bizley\quill\assets\HighlightAsset;
-use bizley\quill\assets\HighlightLocalAsset;
-use bizley\quill\assets\KatexAsset;
-use bizley\quill\assets\KatexLocalAsset;
-use bizley\quill\assets\QuillAsset;
-use bizley\quill\assets\QuillLocalAsset;
-use bizley\quill\assets\SmartBreakLocalAsset;
+use jcabanillas\quill\assets\HighlightAsset;
+use jcabanillas\quill\assets\HighlightLocalAsset;
+use jcabanillas\quill\assets\KatexAsset;
+use jcabanillas\quill\assets\KatexLocalAsset;
+use jcabanillas\quill\assets\QuillAsset;
+use jcabanillas\quill\assets\QuillLocalAsset;
+use jcabanillas\quill\assets\SmartBreakLocalAsset;
 use yii\base\InvalidConfigException;
 use yii\helpers\ArrayHelper;
 use yii\helpers\Html;
@@ -24,17 +24,17 @@ use yii\widgets\InputWidget;
  * Quill editor implementation for Yii 2.
  *
  * Use it as an active field:
- * <?= $form->field($model, $attribute)->widget(\bizley\quill\Quill::class, []) ?>
+ * <?= $form->field($model, $attribute)->widget(\jcabanillas\quill\Quill::class, []) ?>
  *
  * Or as a standalone widget:
- * <?= \bizley\quill\Quill::widget(['name' => 'editor']) ?>
+ * <?= \jcabanillas\quill\Quill::widget(['name' => 'editor']) ?>
  *
  * See the documentation for more details.
  *
- * @author Paweł Bizley Brzozowski
+ * @author Paweł jcabanillas Brzozowski
  * @version 3.3.0
  * @license Apache 2.0
- * https://github.com/bizley/yii2-quill
+ * https://github.com/jcabanillas/yii2-quill
  *
  * Quill itself can be found at
  * https://quilljs.com/

@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace bizley\quill\assets;
+namespace jcabanillas\quill\assets;
 
 use yii\web\AssetBundle;
 use yii\web\View;

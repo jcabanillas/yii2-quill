@@ -2,9 +2,9 @@
 
 declare(strict_types=1);
 
-namespace bizley\tests\assets;
+namespace jcabanillas\tests\assets;
 
-use bizley\quill\assets\HighlightLocalAsset;
+use jcabanillas\quill\assets\HighlightLocalAsset;
 use PHPUnit\Framework\TestCase;
 use Yii;
 use yii\base\InvalidConfigException;
@@ -24,7 +24,7 @@ class HighlightLocalAssetTest extends TestCase
                 'components' => [
                     'assetManager' => [
                         'linkAssets' => true,
-                        'basePath' => '@bizley/tests/runtime',
+                        'basePath' => '@jcabanillas/tests/runtime',
                         'baseUrl' => '/'
                     ]
                 ]
