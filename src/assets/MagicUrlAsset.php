@@ -15,7 +15,7 @@ class MagicUrlAsset extends AssetBundle
     /**
      * @var string CDN URL.
      */
-    public $url = 'https://unpkg.com/quill-magic-url@latest/dist/';
+    public $url = 'https://unpkg.com/quill-magic-url@3.0.0/dist/';
 
     /**
      * @var array Dependencias de este activo.
@@ -27,7 +27,7 @@ class MagicUrlAsset extends AssetBundle
     /**
      * @inheritdoc
      */
-    public function registerAssetFiles($view)
+    public function registerAssetFiles($view): void
     {
         $this->js = [$this->url . 'index.js'];
 
